@@ -1,0 +1,132 @@
+/* Resetowanie stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    margin: 0;
+}
+
+/* Styl kontenera głównego */
+.container {
+    flex: 1;
+    width: 80%;
+    max-width: 600px;
+    min-width: 360px;
+    height: 80%;
+    min-height: 900px;
+    background-color: rgb(45, 0, 82);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+/* Sekcja użytkowników */
+.users-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-item {
+    background-color: #1a012e;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #100021;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Nazwa użytkownika */
+.user-details {
+    flex: 1;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* Sekcja przycisków */
+.user-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* Przyciski */
+button {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Przycisk Usuń */
+button.btn-danger {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Przycisk Zmiana roli */
+button.btn-primary {
+    background-color: #3498db; /* Niebieski domyślnie */
+    color: white;
+}
+
+button.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* Zielony przycisk dla zmiany na admina */
+button.btn-admin {
+    background-color: #27ae60;
+    color: white;
+}
+
+button.btn-admin:hover {
+    background-color: #1e8449;
+}
+
+/* Stopka */
+footer {
+    background-color: #333;
+    color: rgb(97, 97, 97);
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
+}
