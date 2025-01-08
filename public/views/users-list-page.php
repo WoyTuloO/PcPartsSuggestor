@@ -26,7 +26,7 @@
 
                             <div class="user-item">
                                 <h4 class="user-details" id="user<?php echo $iterator; ?>-details">
-                                    Username: <?php echo $user->getUsername(); ?><br>
+                                    Username: <?php echo $user->getUsername(); ?><br><br>
                                     Ilość zestawów: <?php echo $user->getSetCount(); ?><br>
                                 </h4>
 

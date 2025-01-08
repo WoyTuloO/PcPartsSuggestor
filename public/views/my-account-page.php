@@ -19,8 +19,9 @@
                 <h2>Twoje Konto <?php echo $_SESSION['username']?></h2>
                 <button onclick="location.href='changePassword'" class="change-password-btn">Zmień Hasło</button>
                     <div class="sets-section">
-                        <input type="text" id="filter-input" class="filter-input"  placeholder="Filtruj po nazwie...">
-                        <h3>Twoje Zestawy</h3>
+                        <label for="filter-input"></label>
+                        <input type="text" id="filter-input" class="filter-input" placeholder="Filtruj po nazwie...">
+                        <h3 class="sets-title">Twoje Zestawy</h3>
                         <div class="sets-list">
 
                         </div>
@@ -76,6 +77,7 @@
         function editSet(setName) {
             sendPost('editSet', setName);
         }
+
     </script>
 </body>
 </html>

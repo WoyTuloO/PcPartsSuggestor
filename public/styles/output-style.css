@@ -185,7 +185,7 @@ button.change-password-btn:hover {
 }
 
 .sets-section {
-    margin-top: 30px;
+    margin-top: 0;
 }
 
 .sets-list {
@@ -252,4 +252,19 @@ footer {
     text-align: center;
     width: 100%;
     padding-top: 5px;
+}
+
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        margin: 10px 0;
+    }
+
+    .container {
+        min-height: 660px;
+    }
+
+    .form-container {
+        min-height: 480px;
+    }
 }

@@ -1,11 +1,5 @@
-
-
-
-
-
 const search = document.querySelector('input[id="filter-input"]');
 const sets = document.querySelector('.sets-list');
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const data = {search: search.value};
@@ -16,9 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         body: JSON.stringify(data)
     })
-        .then(response => response.json()) // Zmiana na .text() zamiast .json()
+        .then(response => response.json())
         .then(result => {
-            console.log(result); // Wyświetl odpowiedź w konsoli
+            console.log(result);
             try {
                 sets.innerHTML = "";
                 loadSets(result);
@@ -27,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 });
-
 
 search.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
@@ -41,9 +34,9 @@ search.addEventListener('keyup', (e) => {
             },
             body: JSON.stringify(data)
         })
-            .then(response => response.json()) // Zmiana na .text() zamiast .json()
+            .then(response => response.json())
             .then(result => {
-                console.log(result); // Wyświetl odpowiedź w konsoli
+                console.log(result);
                 try {
                     sets.innerHTML = "";
                     loadSets(result);
