@@ -58,7 +58,7 @@
 
 
     <footer>
-        <p>PcPartPicker by WoyTuloo</p>
+        <p>GamingPcPartPicker by WoyTuloo</p>
     </footer>
 
     <script>

@@ -10,6 +10,7 @@ header {
     background-color: rgb(45, 0, 82);
     width: 100%;
     padding: 0 15px;
+    min-width: 360px;
 }
 
 header h1 a{
@@ -90,4 +91,10 @@ header h1 a{
 
 .menu-logged.active, .menu-nolog.active {
     display: block;
+}
+
+@media (max-width: 768px) {
+    header h1 a{
+        font-size: 90%;
+    }
 }

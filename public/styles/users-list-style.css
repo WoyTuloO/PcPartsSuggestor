@@ -126,6 +126,20 @@ footer {
     height: 100%;
 }
 
+.search-container {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+
+
 @media (max-width: 768px) {
 
     .form-wrapper {

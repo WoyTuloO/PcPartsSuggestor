@@ -10,20 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1><a href="index">PC PART PICKER</a></h1>
-        <div class="menu-toggle" id="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <div class="menu-nolog" id="menu-nolog">
-            <ul>
-                <li><a href="login">Zaloguj się</a></li>
-                <li><a href="register">Zarejestruj się</a></li>
-            </ul>
-        </div>
-    </header>
+<?php include 'header.php'; ?>
     <div class="container">
         <div class="form-wrapper">
             <div class="form-container">
@@ -51,8 +38,8 @@
             </div>
         </div>
     </div>
-    <footer>
-        <p>PcPartPicker by WoyTuloo</p>
-    </footer>
+<footer>
+    <p>GamingPcPartPicker by WoyTuloo</p>
+</footer>
 </body>
 </html>

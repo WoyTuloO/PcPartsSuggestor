@@ -19,12 +19,11 @@
             <section class="how-it-works">
                 <h3>Jak to działa?</h3>
                 <ul>
-                    <li>Wprowadź budżet – Podaj kwotę, jaką chcesz przeznaczyć na komputer oraz margines tolerancji, który jesteś w stanie zaakceptować.</li>
-                    <li>Wybierz swoje preferencje – Określ, w jaki sposób planujesz korzystać z komputera. Chcesz grać w gry czy może zajmować się pracą profesjonalną?</li>
-                    <li>Zdecyduj, co jest dla Ciebie ważniejsze – Zdecyduj, czy zależy Ci bardziej na bazowej wydajności, jakości upscalingu, czy może na równowadze między nimi.</li>
-                    <li>Wybierz ilość pamięci RAM – Wybierz, ile pamięci operacyjnej będzie odpowiednie dla Twoich potrzeb.</li>
-                    <li>Wybierz rozmiar dysku – Określ, ile miejsca na dane będzie Ci potrzebne.</li>
-                    <li>Wybierz opcje chłodzenia i podkręcania – Zdecyduj, czy chcesz zastosować chłodzenie wodne oraz czy zamierzasz podkręcać procesor.</li>
+                    <li><b>Wprowadź budżet</b> – Podaj kwotę, jaką chcesz przeznaczyć na komputer oraz margines tolerancji, który jesteś w stanie zaakceptować.</li>
+                    <li><b>Wybierz swoje preferencje</b> – Określ, w jaki sposób planujesz korzystać z komputera. Chcesz grać w gry e-sportowe, czy może bardziej interesują cię wysokobudżetowe produkcje?</li>
+                    <li><b>Zdecyduj, co jest dla Ciebie ważniejsze</b> – Zależy Ci bardziej na bazowej wydajności, jakości upscalingu, czy może na równowadze między nimi.</li>
+                    <li><b>Wybierz ilość pamięci RAM</b> – Określ ile pamięci operacyjnej będzie odpowiednie dla Twoich potrzeb.</li>
+                    <li><b>Wybierz rozmiar dysku</b> – Określ, ile miejsca na dane będzie Ci potrzebne.</li>
                 </ul>
             </section>
         </section>
@@ -89,7 +88,7 @@
 </div>
 
 <footer>
-    <p>PcPartPicker by WoyTuloo</p>
+    <p>GamingPcPartPicker by WoyTuloo</p>
 </footer>
 </body>
 </html>

@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC PART PICKER</title>
+    <title>GAMING PC PART PICKER</title>
     <link rel="stylesheet" href="public/styles/header-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@ session_start();
 <body>
 
 <header>
-    <h1><a href="index">PC PART PICKER</a></h1>
+    <h1><a href="index">GAMING PC PART PICKER</a></h1>
     <div class="menu-toggle" id="menu-toggle">
         <div class="bar"></div>
         <div class="bar"></div>

@@ -154,8 +154,8 @@ class SecurityController extends AppController
 
         $username = $_POST['username'];
         $action = $_POST['action'];
-        var_dump($action);
-        var_dump($username);
+
+
         if($action === 'delete'){
             $repo->deleteUser($username);
         }else{
@@ -168,9 +168,7 @@ class SecurityController extends AppController
             }
         }
 
-        $users = $repo->getAllUsers();
-
-        $this->render('users-list-page', ['result' => $users]);
+        header("Location: /usersList");
 
     }
 

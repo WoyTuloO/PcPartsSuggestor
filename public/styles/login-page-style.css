@@ -238,3 +238,17 @@ footer {
     min-height: 2vh;
     color: rgb(97, 97, 97);
 }
+
+@media (max-width: 768px) {
+    .form-wrapper {
+        margin: 10px 0;
+    }
+
+    .container {
+        min-height: 660px;
+    }
+
+    .form-container {
+        min-height: 480px;
+    }
+}

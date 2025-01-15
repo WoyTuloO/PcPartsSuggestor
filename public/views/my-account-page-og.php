@@ -21,7 +21,7 @@
                 <h3>Twoje Zestawy:</h3>
                 <input type="text" id="filter-input" placeholder="Filtruj po nazwie..." oninput="filterSets()">
                 <div class="sets-list" id="sets-list">
-                    <!-- Zestawy użytkownika będą ładowane dynamicznie -->
+
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
 </div>
 
 <footer>
-    <p>PcPartPicker by WoyTuloo</p>
+    <p>GamingPcPartPicker by WoyTuloo</p>
 </footer>
 
 <script>

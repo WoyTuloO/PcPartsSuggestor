@@ -184,6 +184,13 @@ header h1 a{
     border-radius: 5px;
 }
 
+section ul li {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+
 .preferences,
 .priority,
 .ram-options,

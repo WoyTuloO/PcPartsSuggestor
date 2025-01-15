@@ -17,6 +17,13 @@
         <div class="form-container">
             <div class="users-section">
                 <?php if (!empty($result)) echo "<h3>Dostępni użytkownicy: </h3>"; ?>
+
+                <form id="searchForm">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Szukaj użytkownika...">
+                    </div>
+                </form>
+
                 <div class="users-list">
                     <?php
                     $iterator = 1;
@@ -24,35 +31,38 @@
                         foreach ($result as $user):
                             if($user->getUsername() != $_SESSION['username']):?>
 
-                            <div class="user-item">
-                                <h4 class="user-details" id="user<?php echo $iterator; ?>-details">
-                                    Username: <?php echo $user->getUsername(); ?><br><br>
-                                    Ilość zestawów: <?php echo $user->getSetCount(); ?><br>
-                                </h4>
+                                <div class="user-item" data-username="<?php echo strtolower($user->getUsername()); ?>">
+                                    <h4 class="user-details" id="user<?php echo $iterator; ?>-details">
+                                        Username: <?php echo htmlspecialchars($user->getUsername(), ENT_QUOTES, 'UTF-8'); ?><br><br>
+                                        Ilość zestawów: <?php echo htmlspecialchars($user->getSetCount(), ENT_QUOTES, 'UTF-8'); ?><br>
+                                    </h4>
 
-                                <div class="user-actions">
-                                    <form method="POST" action="/userAdminAction">
-                                        <input type="hidden" name="username" value="<?php echo $user->getUsername(); ?>">
-                                        <input type="hidden" name="action" value="delete">
-                                        <button class="btn btn-danger" type="submit">Usuń</button>
-                                    </form>
-                                    <form method="POST" action="/userAdminAction">
-                                        <input type="hidden" name="username" value="<?php echo $user->getUsername(); ?>">
-                                        <input type="hidden" name="action" value="changePermission">
-                                        <button class="btn <?php echo $user->getIsAdmin() ? 'btn-primary' : 'btn-admin'; ?>"
-                                                type="submit"
-                                                name="toggle_role"
-                                                value="toggle_role">
-                                            <?php echo $user->getIsAdmin() ? 'Zmień na Użytkownika' : 'Zmień na Admina'; ?>
-                                        </button>
-                                    </form>
+                                    <div class="user-actions">
+                                        <form method="POST" action="/userAdminAction">
+                                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($user->getUsername(), ENT_QUOTES, 'UTF-8'); ?>">
+                                            <input type="hidden" name="action" value="delete">
+                                            <button class="btn btn-danger" type="submit">Usuń</button>
+                                        </form>
+                                        <form method="POST" action="/userAdminAction">
+                                            <input type="hidden" name="username" value="<?php echo htmlspecialchars($user->getUsername(), ENT_QUOTES, 'UTF-8'); ?>">
+                                            <input type="hidden" name="action" value="changePermission">
+                                            <button class="btn <?php echo $user->getIsAdmin() ? 'btn-primary' : 'btn-admin'; ?>"
+                                                    type="submit"
+                                                    name="toggle_role"
+                                                    value="toggle_role">
+                                                <?php echo $user->getIsAdmin() ? 'Zmień na Użytkownika' : 'Zmień na Admina'; ?>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                            <?php
-                            $iterator++;
+                                <?php
+                                $iterator++;
                             endif;
                         endforeach;
                     }?>
+                </div>
+                <div id="noResultsMessage" style="display: none; text-align: center; margin-top: 20px; color: red;">
+                    Nie znaleziono użytkowników spełniających kryteria wyszukiwania.
                 </div>
             </div>
         </div>
@@ -60,7 +70,7 @@
 </div>
 
 <footer>
-    <p>PcPartPicker by WoyTuloo</p>
+    <p>GamingPcPartPicker by WoyTuloo</p>
 </footer>
 
 <script>
@@ -72,6 +82,36 @@
             details.style.maxHeight = details.scrollHeight + "px";
         }
     }
+
+    function filterUsers() {
+        const filter = document.getElementById('searchInput').value.toLowerCase().trim();
+        const users = document.getElementsByClassName('user-item');
+        let visibleCount = 0;
+
+        for (let i = 0; i < users.length; i++) {
+            const username = users[i].getAttribute('data-username');
+            if (username.includes(filter)) {
+                console.log(username);
+                console.log(filter);
+                users[i].style.display = "";
+                visibleCount++;
+            } else {
+                users[i].style.display = "none";
+            }
+        }
+
+        const noResultsMessage = document.getElementById('noResultsMessage');
+        if (visibleCount === 0) {
+            noResultsMessage.style.display = "block";
+        } else {
+            noResultsMessage.style.display = "none";
+        }
+    }
+
+    document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        filterUsers();
+    });
 </script>
 </body>
 </html>

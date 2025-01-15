@@ -31,9 +31,9 @@
         </div>
     </div>
 
-    <footer>
-        <p>PcPartPicker by WoyTuloo</p>
-    </footer>
+<footer>
+    <p>GamingPcPartPicker by WoyTuloo</p>
+</footer>
 
     <script>
         function toggleDetails(setId) {
