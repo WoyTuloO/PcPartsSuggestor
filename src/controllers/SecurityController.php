@@ -25,7 +25,6 @@ class SecurityController extends AppController
         $password = $_POST['password'];
 
 
-
         if(empty($login) || empty($password)){
             return $this->render('login-page', ['message' => ['Wypełnij wszystkie pola']]);
         }
@@ -36,7 +35,7 @@ class SecurityController extends AppController
             return $this->render('login-page', ['message' => ['Użytkownik o podanych danych logowania nie istnieje!']]);
         }
 
-        if($user->getUsername() !== $login || $user->getPassword() !== $password)
+        if($user->getUsername() !== $login || password_verify($user->getPassword(), $password) )
         {
             return $this->render('login-page', ['message' => ['Niepoprawny login lub hasło']]);
         }
@@ -100,7 +99,7 @@ class SecurityController extends AppController
 
         $user = $repo->getUser($_SESSION['user_id']);
 
-        if($user->getPassword() !== $oldPassword)
+        if(password_verify($user->getPassword(), $oldPassword))
         {
             return $this->render('change-password-page', ['message' => ['Niepoprawne hasło']]);
         }

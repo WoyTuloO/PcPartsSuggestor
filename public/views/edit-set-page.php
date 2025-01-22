@@ -125,7 +125,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="create-set-btn">Utwórz Zestaw</button>
+                    <button type="submit" class="create-set-btn">Zapisz Zestaw</button>
                 </form>
             </div>
         </div>

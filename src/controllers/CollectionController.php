@@ -72,7 +72,14 @@ class CollectionController extends AppController
 
         $cooler = $_POST['cooler'];
         $coolerPrice = (float)$_POST['coolerPrice'];
-        if (empty($cooler) || empty($coolerPrice)) {
+
+        if($coolerPrice == 0) {
+            $tmpCoolerPrice = 100;
+        }else{
+            $tmpCoolerPrice = $coolerPrice;
+        }
+
+        if (empty($cooler) || empty($tmpCoolerPrice)) {
             return $this->render('create-set-page', ['message' => ['cooler']]);
         }
 
@@ -271,7 +278,15 @@ class CollectionController extends AppController
 
         $cooler = $_POST['cooler-name'];
         $coolerPrice = (float)$_POST['cooler-price'];
-        if (empty($cooler) || empty($coolerPrice)) {
+
+        if($coolerPrice == 0) {
+            $tmpCoolerPrice = 100;
+        }else{
+            $tmpCoolerPrice = $coolerPrice;
+        }
+
+
+        if (empty($cooler) || empty($tmpCoolerPrice)) {
             return $this->render('create-set-page', ['message' => ['cooler']]);
         }
 
@@ -351,29 +366,12 @@ class CollectionController extends AppController
             header('Content-type: application/json');
             http_response_code(200);
 
-
             $setRepo = new SetRepository();
-
-
-
-            //        $corePrice = $_POST['corePrice'];
-            //        $varPrice = $_POST['varPrice'];
-            //
             $minPrice = (int)$corePrice - (int)$varPrice - 500;
             $maxPrice = (int)$corePrice + (int)$varPrice;
-            //
-            //        $preferences = $_POST['preferences'];
-            //        $priority = $_POST['priority'];
-            //        $ramSize = $_POST['ramSize'];
-            //        $storageSize = $_POST['storageSize'];
-
 
             echo json_encode($setRepo->filterSets($minPrice, $maxPrice, $preferences, $priority, $ramSize, $storageSize));
 
-
-
-
-            //$this->render('output-page', ['result' => $result]);
         }
 
 

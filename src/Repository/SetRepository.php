@@ -11,7 +11,7 @@ class SetRepository extends Repository
     public function addCpu(string $cpuName, float $cpuPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM cpus WHERE name = :cpuName');
-        $stmt->bindParam(':cpuName', $cpuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':cpuName', $cpuName);
         $stmt->execute();
         $tmpCpu = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -19,7 +19,7 @@ class SetRepository extends Repository
 
             $cpuId = $tmpCpu['id'];
             $stmt = $this->pdo->prepare('UPDATE cpus SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $cpuName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $cpuName);
             $stmt->bindParam(':price', $cpuPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -27,7 +27,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO cpus (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $cpuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $cpuName);
         $stmt->bindParam(':price', $cpuPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -38,14 +38,14 @@ class SetRepository extends Repository
     public function addGpu(string $gpuName, int $gpuPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM gpus WHERE name = :name');
-        $stmt->bindParam(':name', $gpuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $gpuName);
         $stmt->execute();
         $tmpGpu = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if($tmpGpu){
             $gpuId = $tmpGpu['id'];
             $stmt = $this->pdo->prepare('UPDATE gpus SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $gpuName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $gpuName);
             $stmt->bindParam(':price', $gpuPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -54,7 +54,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO gpus (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $gpuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $gpuName);
         $stmt->bindParam(':price', $gpuPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -65,14 +65,14 @@ class SetRepository extends Repository
     public function addMotherboard(string $motherboardName, int $motherboardPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM motherboards WHERE name = :name');
-        $stmt->bindParam(':name', $motherboardName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $motherboardName);
         $stmt->execute();
         $tmpMotherboard = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if($tmpMotherboard){
             $moboId = $tmpMotherboard['id'];
             $stmt = $this->pdo->prepare('UPDATE motherboards SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $motherboardName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $motherboardName);
             $stmt->bindParam(':price', $motherboardPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -82,7 +82,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO motherboards (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $motherboardName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $motherboardName);
         $stmt->bindParam(':price', $motherboardPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -92,7 +92,7 @@ class SetRepository extends Repository
     public function addRam(string $ramName, int $ramPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM rams WHERE name = :name');
-        $stmt->bindParam(':name', $ramName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $ramName);
         $stmt->execute();
         $tmpRam = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -100,7 +100,7 @@ class SetRepository extends Repository
 
             $ramId = $tmpRam['id'];
             $stmt = $this->pdo->prepare('UPDATE rams SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $ramName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $ramName);
             $stmt->bindParam(':price', $ramPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -109,7 +109,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO rams (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $ramName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $ramName);
         $stmt->bindParam(':price', $ramPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -119,7 +119,7 @@ class SetRepository extends Repository
     public function addStorage(string $storageName, int $storagePrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM storages WHERE name = :name');
-        $stmt->bindParam(':name', $storageName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $storageName);
         $stmt->execute();
         $tmpStorage = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -127,7 +127,7 @@ class SetRepository extends Repository
 
             $storageId = $tmpStorage['id'];
             $stmt = $this->pdo->prepare('UPDATE storages SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $storageName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $storageName);
             $stmt->bindParam(':price', $storagePrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -136,7 +136,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO storages (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $storageName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $storageName);
         $stmt->bindParam(':price', $storagePrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -146,7 +146,7 @@ class SetRepository extends Repository
     public function addCooler(string $coolerName, int $coolerPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM coolers WHERE name = :name');
-        $stmt->bindParam(':name', $coolerName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $coolerName);
         $stmt->execute();
         $tmpCooler = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -154,7 +154,7 @@ class SetRepository extends Repository
 
             $coolerId = $tmpCooler['id'];
             $stmt = $this->pdo->prepare('UPDATE coolers SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $coolerName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $coolerName);
             $stmt->bindParam(':price', $coolerPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -163,7 +163,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO coolers (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $coolerName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $coolerName);
         $stmt->bindParam(':price', $coolerPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -173,7 +173,7 @@ class SetRepository extends Repository
     public function addCase(string $caseName, int $casePrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM cases WHERE name = :name');
-        $stmt->bindParam(':name', $caseName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $caseName);
         $stmt->execute();
         $tmpCase = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -181,7 +181,7 @@ class SetRepository extends Repository
 
             $caseId = $tmpCase['id'];
             $stmt = $this->pdo->prepare('UPDATE cases SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $caseName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $caseName);
             $stmt->bindParam(':price', $casePrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -190,7 +190,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO cases (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $caseName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $caseName);
         $stmt->bindParam(':price', $casePrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -200,14 +200,14 @@ class SetRepository extends Repository
     public function addPsu(string $psuName, int $psuPrice): int{
 
         $stmt = $this->pdo->prepare('SELECT * FROM psus WHERE name = :name');
-        $stmt->bindParam(':name', $psuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $psuName);
         $stmt->execute();
         $tmpPsu = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if($tmpPsu){
             $psuId = $tmpPsu['id'];
             $stmt = $this->pdo->prepare('UPDATE psus SET price = :price WHERE name = :name');
-            $stmt->bindParam(':name', $psuName, \PDO::PARAM_STR);
+            $stmt->bindParam(':name', $psuName);
             $stmt->bindParam(':price', $psuPrice, \PDO::PARAM_INT);
             $stmt->execute();
 
@@ -215,7 +215,7 @@ class SetRepository extends Repository
         }
 
         $stmt = $this->pdo->prepare('INSERT INTO psus (name, price) VALUES (:name, :price)');
-        $stmt->bindParam(':name', $psuName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $psuName);
         $stmt->bindParam(':price', $psuPrice, \PDO::PARAM_INT);
         $stmt->execute();
 
@@ -290,7 +290,7 @@ class SetRepository extends Repository
 
         $stmt = $this->pdo->prepare('INSERT INTO sets (set_components_id, name, total_price, username, preferences, priority, ram, storage) VALUES (:comp_id, :name, :total_price, :username, :preferences, :priority, :ram, :storage)');
         $stmt->bindParam(':comp_id', $componentsId, \PDO::PARAM_INT);
-        $stmt->bindParam(':name', $setName, \PDO::PARAM_STR);
+        $stmt->bindParam(':name', $setName);
         $total = $set->getTotal();
         $stmt->bindParam(':total_price', $total, \PDO::PARAM_INT);
         $creatorName = $set->getCreatorName();

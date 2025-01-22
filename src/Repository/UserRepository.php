@@ -26,6 +26,7 @@ class UserRepository extends Repository {
 
     public function addUser(string $username, string $password): bool
     {
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $this->pdo->prepare('SELECT * FROM public.users WHERE username = :username');
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->execute();
@@ -35,7 +36,7 @@ class UserRepository extends Repository {
             return false;
         }
 
-        $stmt = $this->pdo->prepare('INSERT INTO public.users (username, password, created_at, updated_at, is_admin) VALUES (:username, :password, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 0)');
+        $stmt = $this->pdo->prepare('INSERT INTO public.users (username, password, is_admin) VALUES (:username, :password, 0)');
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
         $stmt->execute();
@@ -45,6 +46,7 @@ class UserRepository extends Repository {
 
 
     public function updateUser(string $username, string $password) : bool {
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $stmt = $this->pdo->prepare('UPDATE public.users SET password = :password WHERE username = :username');
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
@@ -94,7 +96,7 @@ class UserRepository extends Repository {
         $users = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $result = [];
         foreach ($users as $user) {
-            $result[] = new User($user['username'], $user['password'], $user['is_admin']);
+            $result[] = new User($user['username'], "", $user['is_admin']);
         }
         return $result;
     }
