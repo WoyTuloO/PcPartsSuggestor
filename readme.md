@@ -9,6 +9,7 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
 - [Installation](#installation)
 - [Usage](#usage)
 - [Showcase](#showcase)
+- [Gallery](#gallery)
 
 
 
@@ -58,7 +59,7 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
 
 ### Steps
 
-1. **Clone the Repository**
+1. **Clone the Repository:**
 
 2. **Build and Run Containers:**
 
