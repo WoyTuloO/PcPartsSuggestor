@@ -8,6 +8,7 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Showcase](#showcase)
 
 
 
@@ -57,15 +58,25 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
 
 ### Steps
 
-1. **Clone the Repository:**
+1. **Clone the Repository**
 
 2. **Build and Run Containers:**
 
-    docker-compose up -d --build
+          docker compose up -d --build
 
-    Open your browser and navigate to:
+3. **Setup database:**
 
-    http://localhost:8080
+  -  Log into database:
+
+              User: dev_user
+              Password: dev_password
+  -   Open console ***for dev_db*** database (if not exists then create one).
+  -   Paste and execute the content of db_setup.sql file in the console.
+  -   **(Optional)** Populate database for testing - paste and execute the content of populate_db.sql file in the console.
+
+  -   Open your browser and navigate to:
+
+          http://localhost:8080
 
 ## Usage
 
@@ -87,3 +98,38 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
     Admin Functions:
         Administrators can manage user roles through the admin panel.
 ---
+
+### Testing
+
+For showcase purposes there were 3 users created:
+
+            User:       admin
+            Password:   admin
+
+            User:       user1
+            Password:   user1
+
+            User:       user2
+            Password:   user2
+
+Use them to browse and test the functionalities of this app.
+
+Enjoy !
+
+
+### Gallery
+![photo1](./gallery/mainpage.png)
+
+![photo2](./gallery/newsetview.png)
+
+![photo3](./gallery/outputview.png)
+
+![photo4](./gallery/userview.png)
+
+![photo5](./gallery/loginview.png)
+
+
+
+
+
+    
