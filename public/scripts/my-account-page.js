@@ -1,3 +1,46 @@
+function toggleDetails(setId) {
+    const details = document.getElementById(setId);
+
+    if (details.style.maxHeight) {
+        details.style.maxHeight = null;
+    } else {
+        details.style.maxHeight = details.scrollHeight + "px";
+    }
+}
+
+async function sendPost(action, setName) {
+    try {
+        const response = await fetch(action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ setName })
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            if (action === 'deleteSet') {
+                location.reload();
+            }
+        } else {
+            alert(`Operacja nie powiodła się: ${result.message}`);
+        }
+    } catch (error) {
+        console.error("Błąd żądania:", error);
+        alert("Wystąpił problem z żądaniem.");
+    }
+}
+
+function deleteSet(setName) {
+    if (confirm(`Czy na pewno chcesz usunąć zestaw: ${setName}?`)) {
+        sendPost('deleteSet', setName);
+    }
+}
+
+function editSet(setName) {
+    sendPost('editSet', setName);
+}
+
+
 const search = document.querySelector('input[id="filter-input"]');
 const sets = document.querySelector('.sets-list');
 
@@ -51,10 +94,13 @@ search.addEventListener('keyup', (e) => {
 function loadSets(result) {
     let i=0;
     result.forEach(set => {
-            console.log(set);
             createSetCard(set, i);
             i++;
         })
+    console.log(i);
+    if(i === 0) {
+        sets.innerHTML = "<h3 style='color : red; display : flex; justify-content: center'>Nie znaleziono zestawów</h3>";
+    }
 }
 
 function createSetCard(set, index) {

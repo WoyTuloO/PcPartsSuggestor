@@ -21,7 +21,7 @@
                     <div class="sets-section">
                         <label for="filter-input"></label>
                         <input type="text" id="filter-input" class="filter-input" placeholder="Filtruj po nazwie...">
-                        <h3 class="sets-title">Twoje Zestawy</h3>
+                        <h3 class="sets-title">Twoje Zestawy:</h3>
                         <div class="sets-list">
 
                         </div>
@@ -35,49 +35,5 @@
     <p>GamingPcPartPicker by WoyTuloo</p>
 </footer>
 
-    <script>
-        function toggleDetails(setId) {
-            const details = document.getElementById(setId);
-
-            if (details.style.maxHeight) {
-                details.style.maxHeight = null;
-            } else {
-                details.style.maxHeight = details.scrollHeight + "px";
-            }
-        }
-
-        async function sendPost(action, setName) {
-            try {
-                const response = await fetch(action, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ setName })
-                });
-
-                const result = await response.json();
-                if (result.success) {
-                    if (action === 'deleteSet') {
-                        location.reload();
-                    }
-                } else {
-                    alert(`Operacja nie powiodła się: ${result.message}`);
-                }
-            } catch (error) {
-                console.error("Błąd żądania:", error);
-                alert("Wystąpił problem z żądaniem.");
-            }
-        }
-
-        function deleteSet(setName) {
-            if (confirm(`Czy na pewno chcesz usunąć zestaw: ${setName}?`)) {
-                sendPost('deleteSet', setName);
-            }
-        }
-
-        function editSet(setName) {
-            sendPost('editSet', setName);
-        }
-
-    </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ body {
     width: 80%;
     max-width: 600px;
     min-width: 360px;
-    min-height: 900px;
+    min-height: 660px;
     height: 80%;
     background-color: rgb(45, 0, 82);
     padding: 20px;
@@ -143,6 +143,7 @@ header h1 a{
     max-width: 500px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border: 1px solid #1e0034;
+    min-height: 600px;
 }
 
 h2 {

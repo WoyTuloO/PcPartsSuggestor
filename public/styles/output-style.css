@@ -150,6 +150,7 @@ header h1 a{
     height: 100%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border: 1px solid #1e0034;
+    min-height: 600px;
 }
 
 h2 {
