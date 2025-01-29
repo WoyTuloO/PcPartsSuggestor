@@ -18,7 +18,7 @@
 
                 <div class="sets-section">
                     <?php if (!empty($result))
-                        echo "<h3>Zestawy o podanych kryteriach: </h3>"
+                        echo "<h3 style='display:flex; justify-content: center;'>Zestawy o podanych kryteriach: </h3>"
                         ?>
                     <div class="sets-list">
                         <?php

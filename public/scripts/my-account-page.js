@@ -122,14 +122,16 @@ function createSetCard(set, index) {
                             <li>Obudowa: ${set.case_name} - ${set.case_price} zł</li>
                             <li>Zasilacz: ${set.psu_name} - ${set.psu_price} zł</li>
                         </ul>
-                        <form method="POST" action="editSet" style="display:inline;">
-                            <input type="hidden" name="setName" value="${set.set_name}">
-                            <button type="submit" class="button-edit">Edytuj</button>
-                        </form>
-                        <form method="POST" action="deleteSet" style="display:inline;">
-                            <input type="hidden" name="setName" value="${set.set_name}">
-                            <button type="submit" class="button-delete">Usuń</button>
-                        </form>
+                        <div style = 'padding-bottom: 10px;'>
+                            <form method="POST" action="editSet" style="display:inline;">
+                                <input type="hidden" name="setName" value="${set.set_name}">
+                                <button type="submit" class="button-edit">Edytuj</button>
+                            </form>
+                            <form method="POST" action="deleteSet" style="display:inline;">
+                                <input type="hidden" name="setName" value="${set.set_name}">
+                                <button type="submit" class="button-delete">Usuń</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 `;
