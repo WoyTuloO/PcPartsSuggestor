@@ -62,6 +62,8 @@ GamingPcPartPicker is a web application designed for PC enthusiasts to create, m
 1. **Clone the Repository:**
 
 2. **Build and Run Containers:**
+    
+   - Navigate to the projects main directory:
 
           docker compose up -d --build
 
